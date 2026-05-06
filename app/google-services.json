@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "597856715621",
+    "project_id": "foro2dsm-f79bd",
+    "storage_bucket": "foro2dsm-f79bd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:597856715621:android:dffabda2ca16a355a7178c",
+        "android_client_info": {
+          "package_name": "com.example.foro2dsm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "597856715621-8ednqbij87l4slojo0fu81cpiaqc8c17.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.foro2dsm",
+            "certificate_hash": "6baa0ec5dee6acec90251a8a8f75748de0bb80b3"
+          }
+        },
+        {
+          "client_id": "597856715621-7l9f0chmog06ul7rqusn4kb533j1og63.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZiupzCREyEu8nv_3XnVjOVNDVy4iHWbA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "597856715621-7l9f0chmog06ul7rqusn4kb533j1og63.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
