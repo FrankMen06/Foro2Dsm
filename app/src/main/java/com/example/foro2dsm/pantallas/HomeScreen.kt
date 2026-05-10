@@ -57,8 +57,11 @@ import kotlinx.coroutines.tasks.await
 @Composable
 fun HomeScreen(
     onAgregarGasto: () -> Unit,
-    onCerrarSesion: () -> Unit
-) {
+    onCerrarSesion: () -> Unit,
+    onVerHistorial: () -> Unit,
+    onFiltrar: () -> Unit,
+    onGastosMensuales: () -> Unit
+){
     val authService = remember { AuthService() }
     val usuarioFirebase = authService.usuarioActual()
 
@@ -234,12 +237,7 @@ fun HomeScreen(
                         subtitulo = "Ver gastos guardados",
                         icono = Icons.Default.ReceiptLong,
                         modifier = Modifier.weight(1f),
-                        onClick = {
-                            mostrarMensaje(
-                                "Próximamente",
-                                "La opción de historial de gastos estará disponible más adelante."
-                            )
-                        }
+                        onClick = onVerHistorial
                     )
                 }
 
@@ -254,12 +252,7 @@ fun HomeScreen(
                         subtitulo = "Por categoría o mes",
                         icono = Icons.Default.FilterList,
                         modifier = Modifier.weight(1f),
-                        onClick = {
-                            mostrarMensaje(
-                                "Próximamente",
-                                "La opción de filtrar gastos estará disponible más adelante."
-                            )
-                        }
+                        onClick = onFiltrar
                     )
 
                     AccionCard(
@@ -267,12 +260,7 @@ fun HomeScreen(
                         subtitulo = "Ver resumen del mes",
                         icono = Icons.Default.Analytics,
                         modifier = Modifier.weight(1f),
-                        onClick = {
-                            mostrarMensaje(
-                                "Próximamente",
-                                "La opción de total mensual estará disponible más adelante."
-                            )
-                        }
+                        onClick = onGastosMensuales
                     )
                 }
             }

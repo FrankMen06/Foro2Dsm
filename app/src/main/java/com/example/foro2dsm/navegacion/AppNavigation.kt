@@ -9,7 +9,9 @@ import com.example.foro2dsm.pantallas.HomeScreen
 import com.example.foro2dsm.pantallas.LoginScreen
 import com.example.foro2dsm.pantallas.RegisterScreen
 import com.example.foro2dsm.pantallas.AgregarGastoScreen
-
+import com.example.foro2dsm.pantallas.HistorialScreen
+import com.example.foro2dsm.pantallas.FiltrarGastosScreen
+import com.example.foro2dsm.pantallas.TotalMensualScreen
 @Composable
 fun AppNavigation() {
     val navController = rememberNavController()
@@ -60,25 +62,48 @@ fun AppNavigation() {
                 onAgregarGasto = {
                     navController.navigate("agregar_gasto")
                 },
-
+                onVerHistorial = {
+                    navController.navigate("historial")
+                },
                 onCerrarSesion = {
                     navController.navigate("login") {
                         popUpTo("home") {
                             inclusive = true
                         }
                     }
-                }
-            )
+                },
+                onFiltrar = {
+                    navController.navigate("filtrar")
+                },
+                onGastosMensuales = {
+                    navController.navigate("total_mensual")
+                },
+
+                )
         }
 
         composable("agregar_gasto") {
             AgregarGastoScreen(
+                onVolver = { navController.popBackStack() },
+                onGastoGuardado = { navController.popBackStack() }
+            )
+        }
+
+        composable("historial") {
+            HistorialScreen(
                 onVolver = {
                     navController.popBackStack()
-                },
-                onGastoGuardado = {
-                    navController.popBackStack()
                 }
+            )
+        }
+        composable("filtrar") {
+            FiltrarGastosScreen(
+                onVolver = { navController.popBackStack() }
+            )
+        }
+        composable("total_mensual") {
+            TotalMensualScreen(
+                onVolver = { navController.popBackStack() }
             )
         }
     }

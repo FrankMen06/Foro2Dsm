@@ -43,4 +43,31 @@ class GastoService {
             Result.failure(e)
         }
     }
+    suspend fun obtenerGastos(): Result<List<Gasto>> {
+
+        return try {
+
+            val user = auth.currentUser
+                ?: return Result.failure(Exception("No hay usuario autenticado."))
+
+            val snapshot = db.collection("usuarios")
+                .document(user.uid)
+                .collection("gastos")
+                .get()
+                .await()
+
+            val lista = snapshot.documents.mapNotNull { documento ->
+
+                documento.toObject(Gasto::class.java)?.copy(
+                    id = documento.id
+                )
+            }
+
+            Result.success(lista)
+
+        } catch (e: Exception) {
+
+            Result.failure(e)
+        }
+    }
 }
